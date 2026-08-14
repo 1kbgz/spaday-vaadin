@@ -1,0 +1,21 @@
+spaday_vaadin
+=============
+
+.. py:module:: spaday_vaadin
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   spaday_vaadin.__version__
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   :value: '0.1.0'
+
+
