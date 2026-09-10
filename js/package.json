@@ -33,6 +33,7 @@
     "dev": "npm-run-all -p start watch",
     "lint": "oxlint . && oxfmt --check \"src/**/*.{js,ts,jsx,tsx,css}\" \"tests/**/*.{js,ts,jsx,tsx}\" \"*.mjs\" \"*.json\"",
     "fix": "oxlint --fix . && oxfmt --write \"src/**/*.{js,ts,jsx,tsx,css}\" \"tests/**/*.{js,ts,jsx,tsx}\" \"*.mjs\" \"*.json\"",
+    "manifest": "node tools/manifest.mjs",
     "preinstall": "npx only-allow pnpm",
     "prepack": "npm run build",
     "start": "http-server -p 3000 -o examples/",
@@ -51,5 +52,28 @@
     "oxfmt": "^0.66.0",
     "oxlint": "^1.81.0",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@vaadin/a11y-base": "25.2.10",
+    "@vaadin/button": "25.2.10",
+    "@vaadin/checkbox": "25.2.10",
+    "@vaadin/combo-box": "25.2.10",
+    "@vaadin/component-base": "25.2.10",
+    "@vaadin/date-picker": "25.2.10",
+    "@vaadin/dialog": "25.2.10",
+    "@vaadin/field-base": "25.2.10",
+    "@vaadin/grid": "25.2.10",
+    "@vaadin/icon": "25.2.10",
+    "@vaadin/input-container": "25.2.10",
+    "@vaadin/item": "25.2.10",
+    "@vaadin/list-box": "25.2.10",
+    "@vaadin/lit-renderer": "25.2.10",
+    "@vaadin/notification": "25.2.10",
+    "@vaadin/overlay": "25.2.10",
+    "@vaadin/select": "25.2.10",
+    "@vaadin/tabs": "25.2.10",
+    "@vaadin/text-field": "25.2.10",
+    "@vaadin/vaadin-lumo-styles": "25.2.10",
+    "@vaadin/vaadin-themable-mixin": "25.2.10"
   }
 }
