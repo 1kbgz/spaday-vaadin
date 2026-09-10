@@ -161,8 +161,12 @@ function resolve(decl, owner, missing) {
   // (`ButtonAppearance`) that means nothing without the library's sources, and without Closure's
   // non-null marker (`!Array<!GridItem>`), which a TypeScript reading does not expect
   for (const entry of [...out.attributes, ...(out.members ?? [])]) {
-    const text = entry.parsedType?.text ?? entry.type?.text;
-    if (text) entry.type = { text: text.replace(/!(?=[\w(])/g, "") };
+    if (entry.parsedType?.text) entry.type = { text: entry.parsedType.text };
+    if (entry.type?.text?.includes("!"))
+      entry.type = {
+        ...entry.type,
+        text: entry.type.text.replace(/!(?=[\w(])/g, ""),
+      };
   }
   return out;
 }
