@@ -1,0 +1,44 @@
+{
+  "@vaadin/vaadin-themable-mixin": {
+    "modules": [
+      {
+        "kind": "javascript-module",
+        "path": "vaadin-theme-property-mixin.js",
+        "declarations": [
+          {
+            "kind": "mixin",
+            "name": "ThemePropertyMixin",
+            "attributes": [
+              {
+                "name": "theme",
+                "type": { "text": "string" },
+                "description": "Space-separated theme variants, such as `primary` or `small`, which the element propagates to its parts."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "javascript-module",
+        "path": "vaadin-themable-mixin.js",
+        "declarations": [
+          {
+            "kind": "mixin",
+            "name": "ThemableMixin",
+            "mixins": [
+              {
+                "name": "ThemePropertyMixin",
+                "package": "@vaadin/vaadin-themable-mixin"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "javascript-module",
+        "path": "lumo-injection-mixin.js",
+        "declarations": [{ "kind": "mixin", "name": "LumoInjectionMixin" }]
+      }
+    ]
+  }
+}

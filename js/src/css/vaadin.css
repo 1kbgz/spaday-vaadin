@@ -1,0 +1,24 @@
+@import "../../node_modules/@vaadin/vaadin-lumo-styles/lumo.css";
+
+/* Lumo is the design system, so it drives the shell palette rather than deferring to it: every
+ * --spa-* token spaday and its component packages read is mapped onto the Lumo property that owns
+ * it. Restyle Lumo (its --lumo-* properties, or its dark theme) and the shell, the graphs, the tables
+ * and the trees follow. Declared wherever Lumo's palette can change -- the root, the spaday app a
+ * `css()` call themes, a dark theme attribute, spaday's wa-dark / wa-light islands -- so each
+ * recomputes against the properties in force there instead of inheriting the root's. Lumo has no
+ * informational color of its own; its primary color stands in. */
+:root,
+spa-app,
+[theme~="dark"],
+.wa-dark,
+.wa-light {
+  --spa-surface: var(--lumo-base-color);
+  --spa-surface-2: var(--lumo-contrast-5pct);
+  --spa-border: var(--lumo-contrast-10pct);
+  --spa-muted: var(--lumo-secondary-text-color);
+  --spa-accent: var(--lumo-primary-color);
+  --spa-info: var(--lumo-primary-color);
+  --spa-success: var(--lumo-success-color);
+  --spa-warning: var(--lumo-warning-color);
+  --spa-danger: var(--lumo-error-color);
+}

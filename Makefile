@@ -27,6 +27,12 @@ build-js:
 
 build: build-js build-py  ## build the project
 
+.PHONY: catalog
+catalog:  ## regenerate the typed catalog from Vaadin's manifests
+	cd js; pnpm manifest
+	python -m spaday.cem spaday_vaadin/custom-elements.json -o spaday_vaadin/components.py
+	python -m ruff format spaday_vaadin/components.py
+
 .PHONY: install
 install:  ## install python library
 	uv pip install .
