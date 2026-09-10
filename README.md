@@ -69,12 +69,5 @@ import map. A library that imports or extends them and leaves those imports out 
 The served copy carries the opt-out of Vaadin's development-time usage statistics, which its package
 normally installs at `npm install` time.
 
-## Development
-
-`make catalog` regenerates the typed classes from the installed Vaadin packages: it collects their
-manifests into `spaday_vaadin/custom-elements.json` (`js/tools/manifest.mjs`) and generates
-`spaday_vaadin/components.py` from it. `js/tools/unpublished.json` supplies the theming mixins that
-Vaadin publishes no manifest for.
-
 > [!NOTE]
 > This library was generated using [copier](https://copier.readthedocs.io/en/stable/) from the [Base Python Project Template repository](https://github.com/python-project-templates/base).
