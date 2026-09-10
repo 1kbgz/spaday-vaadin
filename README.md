@@ -9,7 +9,6 @@ Typed [Vaadin](https://vaadin.com/docs/latest/components) web components and bro
 
 [![Preview of vaadin components in spaday rendering a fulfillment cockpit](https://raw.githubusercontent.com/1kbgz/spaday-vaadin/main/docs/img/preview.webp)](./spaday_vaadin/example.py)
 
-
 ## Overview
 
 ```python
