@@ -1,0 +1,260 @@
+spaday_vaadin.example
+=====================
+
+.. py:module:: spaday_vaadin.example
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   spaday_vaadin.example.logger
+   spaday_vaadin.example.CUSTOMERS
+   spaday_vaadin.example.PRIORITIES
+   spaday_vaadin.example.TODAY
+   spaday_vaadin.example.feed
+   spaday_vaadin.example.session
+   spaday_vaadin.example.server
+   spaday_vaadin.example.metrics
+   spaday_vaadin.example.orders_panel
+   spaday_vaadin.example.order_form
+   spaday_vaadin.example.confirm
+   spaday_vaadin.example.page
+   spaday_vaadin.example.styles
+   spaday_vaadin.example.app
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   spaday_vaadin.example.FulfillmentFeed
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   spaday_vaadin.example.order
+   spaday_vaadin.example.refresh_metrics
+   spaday_vaadin.example.next_number
+   spaday_vaadin.example.advance_orders
+   spaday_vaadin.example.create_order
+   spaday_vaadin.example.ship_orders
+   spaday_vaadin.example.metric
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:data:: CUSTOMERS
+   :value: ['Northwind Traders', 'Contoso Retail', 'Fabrikam Outdoor', 'Tailspin Toys', 'Wide World Importers']
+
+
+.. py:data:: PRIORITIES
+
+.. py:data:: TODAY
+
+.. py:function:: order(number: int, customer: str, quantity: int, status: str, priority: str = 'standard') -> dict
+
+.. py:class:: FulfillmentFeed(/, **data: Any)
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   !!! abstract "Usage Documentation"
+       [Models](../concepts/models.md)
+
+   A base class for creating Pydantic models.
+
+   .. attribute:: __class_vars__
+
+      The names of the class variables defined on the model.
+
+   .. attribute:: __private_attributes__
+
+      Metadata about the private attributes of the model.
+
+   .. attribute:: __signature__
+
+      The synthesized `__init__` [`Signature`][inspect.Signature] of the model.
+
+   .. attribute:: __pydantic_complete__
+
+      Whether model building is completed, or if there are still undefined fields.
+
+   .. attribute:: __pydantic_core_schema__
+
+      The core schema of the model.
+
+   .. attribute:: __pydantic_custom_init__
+
+      Whether the model has a custom `__init__` function.
+
+   .. attribute:: __pydantic_decorators__
+
+      Metadata containing the decorators defined on the model.
+      This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
+
+   .. attribute:: __pydantic_generic_metadata__
+
+      A dictionary containing metadata about generic Pydantic models.
+      The `origin` and `args` items map to the [`__origin__`][genericalias.__origin__]
+      and [`__args__`][genericalias.__args__] attributes of [generic aliases][types-genericalias],
+      and the `parameter` item maps to the `__parameter__` attribute of generic classes.
+
+   .. attribute:: __pydantic_parent_namespace__
+
+      Parent namespace of the model, used for automatic rebuilding of models.
+
+   .. attribute:: __pydantic_post_init__
+
+      The name of the post-init method for the model, if defined.
+
+   .. attribute:: __pydantic_root_model__
+
+      Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
+
+   .. attribute:: __pydantic_serializer__
+
+      The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
+
+   .. attribute:: __pydantic_validator__
+
+      The `pydantic-core` `SchemaValidator` used to validate instances of the model.
+
+   .. attribute:: __pydantic_fields__
+
+      A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
+
+   .. attribute:: __pydantic_computed_fields__
+
+      A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
+
+   .. attribute:: __pydantic_extra__
+
+      A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
+      is set to `'allow'`.
+
+   .. attribute:: __pydantic_fields_set__
+
+      The names of fields explicitly set during instantiation.
+
+   .. attribute:: __pydantic_private__
+
+      Values of private attributes set on the model instance.
+
+   Create a new model by parsing and validating input data from keyword arguments.
+
+   Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be
+   validated to form a valid model.
+
+   `self` is explicitly positional-only to allow `self` as a field name.
+
+
+   .. py:attribute:: orders
+      :type:  list[dict]
+
+
+   .. py:attribute:: open_orders
+      :type:  str
+      :value: '5'
+
+
+
+   .. py:attribute:: shipped_today
+      :type:  str
+      :value: '38'
+
+
+
+   .. py:attribute:: on_time
+      :type:  str
+      :value: '97.4%'
+
+
+
+.. py:data:: feed
+
+.. py:data:: session
+
+.. py:data:: server
+
+.. py:function:: refresh_metrics(shipped: int = 0) -> None
+
+.. py:function:: next_number() -> int
+
+.. py:function:: advance_orders() -> None
+   :async:
+
+
+   Warehouse progress, pushed to the browser: the oldest packing order becomes ready to ship, and
+   every third tick a new order arrives (the oldest shipped one drops off past twelve rows).
+
+
+.. py:function:: create_order(request)
+   :async:
+
+
+.. py:function:: ship_orders(request)
+   :async:
+
+
+.. py:function:: metric(label: str, value_field: str, badge: str, badge_theme: str)
+
+.. py:data:: metrics
+
+.. py:data:: orders_panel
+
+.. py:data:: order_form
+
+.. py:data:: confirm
+
+.. py:data:: page
+
+.. py:data:: styles
+   :value: Multiline-String
+
+   .. raw:: html
+
+      <details><summary>Show Value</summary>
+
+   .. code-block:: python
+
+      """
+      <style>
+        body { margin: 0; font-family: var(--lumo-font-family); }
+        spa-nav { justify-content: space-between; }
+        .brand { font-size: var(--lumo-font-size-l); color: var(--lumo-header-text-color); }
+        .page { box-sizing: border-box; width: 100%; max-width: 72rem; margin: 0 auto; padding: var(--lumo-space-l);
+          display: grid; align-content: start; gap: var(--lumo-space-m); }
+        .lede { margin: 0; color: var(--lumo-secondary-text-color); }
+        .metrics { flex-wrap: wrap; }
+        .metric { flex: 1 1 12rem; display: grid; gap: var(--lumo-space-xs); padding: var(--lumo-space-m);
+          border: 1px solid var(--spa-border); border-radius: var(--lumo-border-radius-l); background: var(--spa-surface-2); }
+        .metric span:first-child { color: var(--lumo-secondary-text-color); font-size: var(--lumo-font-size-s); }
+        .metric strong { font-size: var(--lumo-font-size-xxl); color: var(--lumo-header-text-color); }
+        .metric [theme~="badge"] { justify-self: start; }
+        .panel { display: grid; gap: var(--lumo-space-m); padding-top: var(--lumo-space-s); }
+        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--lumo-space-l); }
+        .form-grid > * { width: 100%; }
+        .actions { flex-wrap: wrap; }
+        .hint { color: var(--lumo-secondary-text-color); font-size: var(--lumo-font-size-s); }
+        #ship-result { margin: 0; justify-self: start; }
+        @media (max-width: 720px) { .page { padding: var(--lumo-space-s); } .form-grid { grid-template-columns: 1fr; } }
+      </style>
+      """
+
+   .. raw:: html
+
+      </details>
+
+
+
+.. py:data:: app
+

@@ -39,6 +39,19 @@ author the tree. Array properties such as a grid's `items` are keyword arguments
 element as properties. Installing the package does not inject assets; select it with
 `packages=["vaadin"]` or pass the exported `package` descriptor.
 
+## Run the local example
+
+```bash
+python -m pip install -e ".[examples]"
+python -m spaday_vaadin.example
+```
+
+Open `http://127.0.0.1:8027` for the [fulfillment desk](spaday_vaadin/example.py): a grid of orders
+streamed live from Python with selection, sorting and filtering, shipping the selected orders through a
+Python endpoint, an order form of combo box, text field, select, date picker and checkbox two-way bound
+to spaday state, a dialog confirming what the server created, tabs, Lumo badges, and a dark mode that
+re-themes Lumo and the spaday shell together.
+
 ## Theming
 
 The elements are styled with Vaadin's Lumo theme, and the stylesheet maps spaday's `--spa-*` shell

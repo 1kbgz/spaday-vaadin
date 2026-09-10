@@ -11,6 +11,7 @@ Submodules
    :maxdepth: 1
 
    /autoapi/spaday_vaadin/components/index
+   /autoapi/spaday_vaadin/example/index
 
 
 Attributes

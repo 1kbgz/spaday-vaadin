@@ -1,0 +1,39 @@
+test_example
+============
+
+.. py:module:: test_example
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   test_example.request
+   test_example.one_tick
+   test_example.test_example_serves_the_desk
+   test_example.test_warehouse_readies_orders_and_takes_new_ones
+   test_example.test_creating_an_order_adds_it_to_the_feed
+   test_example.test_shipping_ships_only_ready_orders
+
+
+Module Contents
+---------------
+
+.. py:function:: request(method: str, path: str, **kwargs)
+   :async:
+
+
+.. py:function:: one_tick(monkeypatch, ticks: int = 1)
+
+   Run the warehouse loop for ``ticks`` iterations.
+
+
+.. py:function:: test_example_serves_the_desk()
+
+.. py:function:: test_warehouse_readies_orders_and_takes_new_ones(monkeypatch)
+
+.. py:function:: test_creating_an_order_adds_it_to_the_feed()
+
+.. py:function:: test_shipping_ships_only_ready_orders()
+
