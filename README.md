@@ -7,6 +7,9 @@ Typed [Vaadin](https://vaadin.com/docs/latest/components) web components and bro
 [![License](https://img.shields.io/github/license/1kbgz/spaday-vaadin)](https://github.com/1kbgz/spaday-vaadin)
 [![PyPI](https://img.shields.io/pypi/v/spaday-vaadin.svg)](https://pypi.python.org/pypi/spaday-vaadin)
 
+[![Preview of vaadin components in spaday rendering a fulfillment cockpit](https://raw.githubusercontent.com/1kbgz/spaday-vaadin/main/docs/img/preview.webp)](./spaday_vaadin/example.py)
+
+
 ## Overview
 
 ```python
