@@ -4,16 +4,44 @@ test_all
 .. py:module:: test_all
 
 
+Attributes
+----------
+
+.. autoapisummary::
+
+   test_all.ROOT
+
+
 Functions
 ---------
 
 .. autoapisummary::
 
-   test_all.test_all
+   test_all.test_generated_components_serialize
+   test_all.test_catalog_covers_the_curated_set
+   test_all.test_grid_items_are_a_property_only_input
+   test_all.test_package_drives_bootstrap_asset_urls
+   test_all.test_published_imports_are_served
+   test_all.test_tokens_are_lumo_properties_the_css_kwarg_produces
+   test_all.test_generated_catalog_is_current
 
 
 Module Contents
 ---------------
 
-.. py:function:: test_all()
+.. py:data:: ROOT
+
+.. py:function:: test_generated_components_serialize()
+
+.. py:function:: test_catalog_covers_the_curated_set()
+
+.. py:function:: test_grid_items_are_a_property_only_input()
+
+.. py:function:: test_package_drives_bootstrap_asset_urls()
+
+.. py:function:: test_published_imports_are_served()
+
+.. py:function:: test_tokens_are_lumo_properties_the_css_kwarg_produces()
+
+.. py:function:: test_generated_catalog_is_current()
 
