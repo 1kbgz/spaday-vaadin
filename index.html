@@ -207,6 +207,7 @@
 <li class="toctree-l3"><a class="reference internal" href="autoapi/spaday_vaadin/example/index.html">spaday_vaadin.example</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/test_versions/index.html">test_versions</a></li>
 </ul>
 </li>
 </ul>
@@ -256,6 +257,7 @@
 <a class="reference external" href="https://codecov.io/gh/1kbgz/spaday-vaadin"><img alt="codecov" src="https://codecov.io/gh/1kbgz/spaday-vaadin/branch/main/graph/badge.svg" /></a>
 <a class="reference external" href="https://github.com/1kbgz/spaday-vaadin"><img alt="License" src="https://img.shields.io/github/license/1kbgz/spaday-vaadin" /></a>
 <a class="reference external" href="https://pypi.python.org/pypi/spaday-vaadin"><img alt="PyPI" src="https://img.shields.io/pypi/v/spaday-vaadin.svg" /></a></p>
+<p><a class="reference download internal" download="" href="_downloads/7abdfa84cf03079cd4ceef80b6390ef6/example.py"><span class="xref download myst"><img alt="Preview of vaadin components in spaday rendering a fulfillment cockpit" src="https://raw.githubusercontent.com/1kbgz/spaday-vaadin/main/docs/img/preview.webp" /></span></a></p>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spaday</span><span class="w"> </span><span class="kn">import</span> <span class="n">SetField</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">serve</span>
@@ -309,13 +311,6 @@ import map. A library that imports or extends them and leaves those imports out 
 (<code class="docutils literal notranslate"><span class="pre">external:</span> <span class="pre">[&quot;&#64;vaadin/*&quot;]</span></code> with esbuild) gets this copy.</p>
 <p>The served copy carries the opt-out of Vaadin’s development-time usage statistics, which its package
 normally installs at <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span></code> time.</p>
-</section>
-<section id="development">
-<h2>Development<a class="headerlink" href="#development" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">catalog</span></code> regenerates the typed classes from the installed Vaadin packages: it collects their
-manifests into <code class="docutils literal notranslate"><span class="pre">spaday_vaadin/custom-elements.json</span></code> (<code class="docutils literal notranslate"><span class="pre">js/tools/manifest.mjs</span></code>) and generates
-<code class="docutils literal notranslate"><span class="pre">spaday_vaadin/components.py</span></code> from it. <code class="docutils literal notranslate"><span class="pre">js/tools/unpublished.json</span></code> supplies the theming mixins that
-Vaadin publishes no manifest for.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This library was generated using <a class="reference external" href="https://copier.readthedocs.io/en/stable/">copier</a> from the <a class="reference external" href="https://github.com/python-project-templates/base">Base Python Project Template repository</a>.</p>
