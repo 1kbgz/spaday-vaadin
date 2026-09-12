@@ -44,7 +44,7 @@ element as properties. Installing the package does not inject assets; select it 
 ## Browser examples
 
 - [Fulfillment desk](https://1kbgz.github.io/spaday-vaadin/lite/) — complete interactive example, with Python running in Pyodide.
-- [Component gallery](https://1kbgz.github.io/spaday-vaadin/lite/?example=gallery) — all 20 generated Vaadin wrappers and their Python source.
+- [Component gallery](https://1kbgz.github.io/spaday-vaadin/lite/?example=gallery) — the current curated 20-wrapper subset and its Python source.
 
 ## Run the local example
 
@@ -59,7 +59,7 @@ Python endpoint, an order form of combo box, text field, select, date picker and
 to spaday state, a dialog confirming what the server created, tabs, Lumo badges, and a dark mode that
 re-themes Lumo and the spaday shell together.
 
-Run `python -m spaday_vaadin.gallery` and open `http://127.0.0.1:8028` for the exhaustive local component gallery.
+Run `python -m spaday_vaadin.gallery` and open `http://127.0.0.1:8028` for the curated local component gallery.
 
 ## Theming
 

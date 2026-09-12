@@ -306,7 +306,7 @@ styles = """
   .metric span:first-child { color: var(--lumo-secondary-text-color); font-size: var(--lumo-font-size-s); }
   .metric strong { font-size: var(--lumo-font-size-xxl); color: var(--lumo-header-text-color); }
   .metric [theme~="badge"] { justify-self: start; }
-  .panel { display: grid; gap: var(--lumo-space-m); padding-top: var(--lumo-space-s); }
+  .panel { min-height: 100vh; display: grid; align-content: start; gap: var(--lumo-space-m); padding-top: var(--lumo-space-s); }
   vaadin-grid { width: 100%; min-width: 0; max-width: 100%; }
   .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--lumo-space-l); }
   .form-grid > * { width: 100%; }
