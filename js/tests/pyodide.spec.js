@@ -35,6 +35,24 @@ async function expectNoHorizontalOverflow(page) {
   expect(contentOverflow).toBeLessThanOrEqual(1);
 }
 
+async function expectTabNavigationToKeepScrollPosition(page) {
+  const tabs = page.locator("#tabs");
+
+  for (const name of ["New order", "Orders"]) {
+    await tabs.evaluate((element) => {
+      window.scrollTo({
+        behavior: "instant",
+        top: element.getBoundingClientRect().top + window.scrollY - 120,
+      });
+    });
+    const before = await page.evaluate(() => window.scrollY);
+    await page.locator("vaadin-tab", { hasText: name }).click();
+    await expect
+      .poll(() => page.evaluate(() => window.scrollY))
+      .toBeCloseTo(before, 0);
+  }
+}
+
 test("runs the fulfillment example in Pyodide", async ({ page }) => {
   test.skip(!built, "run `make pyodide-example` first");
   test.setTimeout(240_000);
@@ -68,6 +86,8 @@ test("runs the fulfillment example in Pyodide", async ({ page }) => {
     )
     .toBe("Shipped");
 
+  await expectTabNavigationToKeepScrollPosition(page);
+
   await expectNoHorizontalOverflow(page);
   expect(errors).toEqual([]);
 });
@@ -81,6 +101,10 @@ test("runs the complete component gallery in Pyodide", async ({ page }) => {
   await page.goto("/dist/lite/?example=gallery");
   await waitForPython(page);
   await expect(page.locator(".hero h1")).toHaveText("Component gallery");
+  await expect(page.locator(".hero > p")).toContainText(
+    "not the full Vaadin component suite",
+  );
+  await expect(page.locator(".hero-facts")).toContainText("20 wrapped tags");
   await expect(page.locator(".gallery-card")).toHaveCount(4);
   await expect(
     page.locator(".structural-probes > vaadin-grid-tree-toggle"),

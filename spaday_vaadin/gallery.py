@@ -249,10 +249,10 @@ page = App(
                 "section",
                 element("span", class_="eyebrow").text("VAADIN · CURATED CORE"),
                 element("h1").text("Component gallery"),
-                element("p").text("Twenty typed wrappers, organized around the fulfillment workflows they are designed to support."),
+                element("p").text("Twenty typed wrappers from ten selected Vaadin packages—not the full Vaadin component suite."),
                 element(
                     "div",
-                    element("span").text("20 / 20 tags"),
+                    element("span").text("20 wrapped tags"),
                     element("span").text("Vaadin 25.2.10"),
                     element("span").text("Runs in Pyodide"),
                     class_="hero-facts",
