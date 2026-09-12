@@ -3,6 +3,33 @@ import { expect, test } from "@playwright/test";
 
 const built = fs.existsSync("dist/lite/index.html");
 
+async function renderedComponentTags(page, expectedTags, structuralTags = []) {
+  return page.locator("body").evaluate(
+    (body, { expectedTags, structuralTags }) => {
+      const components = [...body.querySelectorAll("*")].filter((element) =>
+        expectedTags.includes(element.localName),
+      );
+      const tags = [...new Set(components.map((element) => element.localName))];
+      const structural = new Set(structuralTags);
+      const unrendered = tags.filter(
+        (tag) =>
+          !structural.has(tag) &&
+          !components
+            .filter((element) => element.localName === tag)
+            .some((element) => {
+              const bounds = element.getBoundingClientRect();
+              return bounds.width > 0 && bounds.height > 0;
+            }),
+      );
+      return {
+        missing: expectedTags.filter((tag) => !tags.includes(tag)),
+        unrendered,
+      };
+    },
+    { expectedTags, structuralTags },
+  );
+}
+
 async function waitForPython(page) {
   await page.waitForFunction(
     () =>
@@ -106,9 +133,66 @@ test("runs the complete component gallery in Pyodide", async ({ page }) => {
   );
   await expect(page.locator(".hero-facts")).toContainText("20 wrapped tags");
   await expect(page.locator(".gallery-card")).toHaveCount(4);
+  await expect(page.locator(".grid-primitives")).toBeVisible();
   await expect(
-    page.locator(".structural-probes > vaadin-grid-tree-toggle"),
-  ).toBeAttached();
+    page.locator(".grid-primitives vaadin-grid-filter"),
+  ).toBeVisible();
+  await expect(
+    page.locator(".grid-primitives vaadin-grid-sorter"),
+  ).toBeVisible();
+  await expect(
+    page.locator(".grid-primitives vaadin-grid-tree-toggle"),
+  ).toBeVisible();
+  const rendered = await renderedComponentTags(
+    page,
+    [
+      "vaadin-button",
+      "vaadin-checkbox",
+      "vaadin-combo-box",
+      "vaadin-date-picker",
+      "vaadin-dialog",
+      "vaadin-grid",
+      "vaadin-grid-column",
+      "vaadin-grid-column-group",
+      "vaadin-grid-filter",
+      "vaadin-grid-filter-column",
+      "vaadin-grid-selection-column",
+      "vaadin-grid-sort-column",
+      "vaadin-grid-sorter",
+      "vaadin-grid-tree-column",
+      "vaadin-grid-tree-toggle",
+      "vaadin-notification",
+      "vaadin-select",
+      "vaadin-tab",
+      "vaadin-tabs",
+      "vaadin-text-field",
+    ],
+    [
+      "vaadin-dialog",
+      "vaadin-grid-column",
+      "vaadin-grid-column-group",
+      "vaadin-grid-filter-column",
+      "vaadin-grid-selection-column",
+      "vaadin-grid-sort-column",
+      "vaadin-grid-tree-column",
+      "vaadin-notification",
+    ],
+  );
+  expect(rendered.missing).toEqual([]);
+  expect(rendered.unrendered).toEqual([]);
+  await page.getByRole("button", { name: "Open shipment dialog" }).click();
+  await expect(page.locator("#gallery-dialog")).toHaveJSProperty(
+    "opened",
+    true,
+  );
+  await expect(page.locator("vaadin-dialog-overlay")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await page.getByRole("button", { name: "Show notification" }).click();
+  await expect(page.locator("#gallery-notification")).toHaveJSProperty(
+    "opened",
+    true,
+  );
+  await expect(page.locator("vaadin-notification-card")).toBeVisible();
   await expect(page.locator(".token-keyword").first()).toHaveText("from");
 
   await expectNoHorizontalOverflow(page);
