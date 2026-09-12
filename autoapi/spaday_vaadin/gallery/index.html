@@ -393,7 +393,7 @@
 <span class="sd">  .eyebrow { display: block; margin-bottom: var(--lumo-space-s); font-size: var(--lumo-font-size-xs); font-weight: 700; letter-spacing: .12em; opacity: .75; }</span>
 <span class="sd">  .hero h1 { max-width: 15ch; margin: 0; color: white; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.03; letter-spacing: -.035em; }</span>
 <span class="sd">  .hero &gt; p { max-width: 42rem; margin: var(--lumo-space-m) 0; font-size: var(--lumo-font-size-l); line-height: 1.55; opacity: .88; }</span>
-<span class="sd">  .hero-facts, .status-row { display: flex; flex-wrap: wrap; gap: var(--lumo-space-xs); }</span>
+<span class="sd">  .hero-facts, .status-row, .feedback-actions { display: flex; flex-wrap: wrap; gap: var(--lumo-space-xs); }</span>
 <span class="sd">  .hero-facts span { padding: .4rem .65rem; border: 1px solid #ffffff3d; border-radius: 999px; background: #ffffff16; font-size: .8rem; font-weight: 700; }</span>
 <span class="sd">  .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--lumo-space-m); }</span>
 <span class="sd">  .gallery-card { min-width: 0; overflow: hidden; border: 1px solid var(--spa-border); border-radius: var(--lumo-border-radius-l);</span>
@@ -409,7 +409,10 @@
 <span class="sd">  .field-actions { display: flex; align-items: end; justify-content: space-between; gap: var(--lumo-space-s); }</span>
 <span class="sd">  .stack-preview { display: grid; gap: var(--lumo-space-m); }</span>
 <span class="sd">  vaadin-grid { width: 100%; min-width: 0; max-width: 100%; }</span>
-<span class="sd">  .structural-probes { display: none; }</span>
+<span class="sd">  .grid-primitives { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--lumo-space-s); }</span>
+<span class="sd">  .grid-primitives label { display: grid; align-content: start; gap: var(--lumo-space-xs); min-width: 0; padding: var(--lumo-space-s);</span>
+<span class="sd">    border: 1px dashed var(--spa-border); border-radius: var(--lumo-border-radius-m); background: var(--lumo-base-color); font-size: var(--lumo-font-size-xs); }</span>
+<span class="sd">  .grid-primitives label &gt; * { max-width: 100%; }</span>
 <span class="sd">  .code-block { max-width: 100%; min-height: 9rem; max-height: 20rem; margin: 0; overflow: auto; padding: 1rem 1.2rem; color: #e0e7ff;</span>
 <span class="sd">    background: #17132c; font: .78rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre; }</span>
 <span class="sd">  .token-keyword { color: #93c5fd; } .token-string { color: #a7f3d0; } .token-number { color: #fcd34d; }</span>
@@ -418,7 +421,7 @@
 <span class="sd">    spa-nav { position: static; flex-wrap: wrap; gap: var(--lumo-space-s); }</span>
 <span class="sd">    .gallery-page { padding: var(--lumo-space-s); }</span>
 <span class="sd">    .hero { border-radius: var(--lumo-border-radius-l); }</span>
-<span class="sd">    .gallery-grid, .form-preview { grid-template-columns: 1fr; }</span>
+<span class="sd">    .gallery-grid, .form-preview, .grid-primitives { grid-template-columns: 1fr; }</span>
 <span class="sd">    .demo-heading { align-items: start; }</span>
 <span class="sd">    .field-actions { align-items: center; flex-wrap: wrap; }</span>
 <span class="sd">  }</span>
