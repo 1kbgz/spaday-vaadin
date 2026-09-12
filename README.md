@@ -7,7 +7,7 @@ Typed [Vaadin](https://vaadin.com/docs/latest/components) web components and bro
 [![License](https://img.shields.io/github/license/1kbgz/spaday-vaadin)](https://github.com/1kbgz/spaday-vaadin)
 [![PyPI](https://img.shields.io/pypi/v/spaday-vaadin.svg)](https://pypi.python.org/pypi/spaday-vaadin)
 
-[![Preview of vaadin components in spaday rendering a fulfillment cockpit](https://raw.githubusercontent.com/1kbgz/spaday-vaadin/main/docs/img/preview.webp)](./spaday_vaadin/example.py)
+[![Preview of vaadin components in spaday rendering a fulfillment cockpit](https://raw.githubusercontent.com/1kbgz/spaday-vaadin/main/docs/img/preview.webp)](https://1kbgz.github.io/spaday-vaadin/lite/)
 
 ## Overview
 
@@ -30,6 +30,11 @@ author the tree. Array properties such as a grid's `items` are keyword arguments
 element as properties. Installing the package does not inject assets; select it with
 `packages=["vaadin"]` or pass the exported `package` descriptor.
 
+## Browser examples
+
+- [Fulfillment desk](https://1kbgz.github.io/spaday-vaadin/lite/) — complete interactive example, with Python running in Pyodide.
+- [Component gallery](https://1kbgz.github.io/spaday-vaadin/lite/?example=gallery) — all 20 generated Vaadin wrappers and their Python source.
+
 ## Run the local example
 
 ```bash
@@ -42,6 +47,8 @@ streamed live from Python with selection, sorting and filtering, shipping the se
 Python endpoint, an order form of combo box, text field, select, date picker and checkbox two-way bound
 to spaday state, a dialog confirming what the server created, tabs, Lumo badges, and a dark mode that
 re-themes Lumo and the spaday shell together.
+
+Run `python -m spaday_vaadin.gallery` and open `http://127.0.0.1:8028` for the exhaustive local component gallery.
 
 ## Theming
 

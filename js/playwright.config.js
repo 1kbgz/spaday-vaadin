@@ -1,5 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const pyodideOnly = process.env.SPADAY_VAADIN_PYODIDE_ONLY === "1";
+
 export default defineConfig({
   testDir: "tests",
   fullyParallel: true,
@@ -28,18 +30,22 @@ export default defineConfig({
       reuseExistingServer: !process.env.CI,
       timeout: 120 * 1000,
     },
-    {
-      command: "python -m spaday_vaadin.example",
-      url: "http://127.0.0.1:8027",
-      reuseExistingServer: !process.env.CI,
-      timeout: 120 * 1000,
-    },
-    {
-      // by path, not `-m`: the tests directory is not an importable package
-      command: "python ../spaday_vaadin/tests/integration.py",
-      url: "http://127.0.0.1:8022",
-      reuseExistingServer: !process.env.CI,
-      timeout: 120 * 1000,
-    },
+    ...(!pyodideOnly
+      ? [
+          {
+            command: "python -m spaday_vaadin.example",
+            url: "http://127.0.0.1:8027",
+            reuseExistingServer: !process.env.CI,
+            timeout: 120 * 1000,
+          },
+          {
+            // by path, not `-m`: the tests directory is not an importable package
+            command: "python ../spaday_vaadin/tests/integration.py",
+            url: "http://127.0.0.1:8022",
+            reuseExistingServer: !process.env.CI,
+            timeout: 120 * 1000,
+          },
+        ]
+      : []),
   ],
 });
