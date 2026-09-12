@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["<stdin>"],
+  "sourcesContent": ["import \"@vaadin/button/vaadin-button.js\";\nimport \"@vaadin/checkbox/vaadin-checkbox.js\";\nimport \"@vaadin/combo-box/vaadin-combo-box.js\";\nimport \"@vaadin/date-picker/vaadin-date-picker.js\";\nimport \"@vaadin/dialog/vaadin-dialog.js\";\nimport \"@vaadin/grid/vaadin-grid-column-group.js\";\nimport \"@vaadin/grid/vaadin-grid-column.js\";\nimport \"@vaadin/grid/vaadin-grid-filter-column.js\";\nimport \"@vaadin/grid/vaadin-grid-filter.js\";\nimport \"@vaadin/grid/vaadin-grid-selection-column.js\";\nimport \"@vaadin/grid/vaadin-grid-sort-column.js\";\nimport \"@vaadin/grid/vaadin-grid-sorter.js\";\nimport \"@vaadin/grid/vaadin-grid-tree-column.js\";\nimport \"@vaadin/grid/vaadin-grid-tree-toggle.js\";\nimport \"@vaadin/grid/vaadin-grid.js\";\nimport \"@vaadin/notification/vaadin-notification.js\";\nimport \"@vaadin/select/vaadin-select.js\";\nimport \"@vaadin/tabs/vaadin-tab.js\";\nimport \"@vaadin/tabs/vaadin-tabs.js\";\nimport \"@vaadin/text-field/vaadin-text-field.js\";\nObject.defineProperty(globalThis, \"__spadayVaadin\", { value: Object.freeze({ version: \"25.2.10\" }), configurable: true });"],
+  "mappings": "AAAA,MAAO,kCACP,MAAO,sCACP,MAAO,wCACP,MAAO,4CACP,MAAO,kCACP,MAAO,2CACP,MAAO,qCACP,MAAO,4CACP,MAAO,qCACP,MAAO,+CACP,MAAO,0CACP,MAAO,qCACP,MAAO,0CACP,MAAO,0CACP,MAAO,8BACP,MAAO,8CACP,MAAO,kCACP,MAAO,6BACP,MAAO,8BACP,MAAO,0CACP,OAAO,eAAe,WAAY,iBAAkB,CAAE,MAAO,OAAO,OAAO,CAAE,QAAS,SAAU,CAAC,EAAG,aAAc,EAAK,CAAC",
+  "names": []
+}

@@ -1,0 +1,23 @@
+{
+  "@vaadin/a11y-base": "25.2.10",
+  "@vaadin/button": "25.2.10",
+  "@vaadin/checkbox": "25.2.10",
+  "@vaadin/combo-box": "25.2.10",
+  "@vaadin/component-base": "25.2.10",
+  "@vaadin/date-picker": "25.2.10",
+  "@vaadin/dialog": "25.2.10",
+  "@vaadin/field-base": "25.2.10",
+  "@vaadin/grid": "25.2.10",
+  "@vaadin/icon": "25.2.10",
+  "@vaadin/input-container": "25.2.10",
+  "@vaadin/item": "25.2.10",
+  "@vaadin/list-box": "25.2.10",
+  "@vaadin/lit-renderer": "25.2.10",
+  "@vaadin/notification": "25.2.10",
+  "@vaadin/overlay": "25.2.10",
+  "@vaadin/select": "25.2.10",
+  "@vaadin/tabs": "25.2.10",
+  "@vaadin/text-field": "25.2.10",
+  "@vaadin/vaadin-lumo-styles": "25.2.10",
+  "@vaadin/vaadin-themable-mixin": "25.2.10"
+}

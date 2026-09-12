@@ -243,6 +243,21 @@ confirm = VaadinDialog(
     header_title="Order submitted",
 )
 
+hero = element(
+    "section",
+    element("span", class_="eyebrow").text("FULFILLMENT CONTROL · LIVE FLOOR"),
+    element("h1").text("Ship today with every order in view"),
+    element("p").text("Warehouse progress, order creation and shipping decisions stay synchronized with one Python service."),
+    element(
+        "div",
+        element("span", theme="badge success").text("20 typed elements"),
+        element("span", theme="badge primary").text("Live warehouse feed"),
+        element("span", theme="badge contrast").text("Python fulfillment"),
+        class_="hero-facts",
+    ),
+    class_="hero",
+)
+
 page = App(
     Nav(
         element("strong", class_="brand").text("Vaadin fulfillment desk"),
@@ -250,6 +265,7 @@ page = App(
     ),
     Body(
         Main(
+            hero,
             element("p", class_="lede").text("Typed Vaadin components, live warehouse data from Python, and Lumo theming the spaday shell."),
             metrics,
             VaadinTabs(VaadinTab().text("Orders"), VaadinTab().text("New order"), id="tabs")
@@ -265,27 +281,60 @@ page = App(
 
 styles = """
 <style>
-  body { margin: 0; font-family: var(--lumo-font-family); }
-  spa-nav { justify-content: space-between; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--lumo-font-family); color: var(--lumo-body-text-color);
+    background: radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--lumo-primary-color) 12%, transparent), transparent 34rem),
+      var(--lumo-contrast-5pct); }
+  spa-nav { position: sticky; z-index: 20; top: 0; justify-content: space-between; border-bottom: 1px solid var(--spa-border); }
   .brand { font-size: var(--lumo-font-size-l); color: var(--lumo-header-text-color); }
   .page { box-sizing: border-box; width: 100%; max-width: 72rem; margin: 0 auto; padding: var(--lumo-space-l);
-    display: grid; align-content: start; gap: var(--lumo-space-m); }
+    display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: var(--lumo-space-m); }
+  .hero { padding: clamp(1.5rem, 5vw, 3.5rem); border: 1px solid color-mix(in srgb, var(--lumo-primary-color) 30%, transparent);
+    border-radius: calc(var(--lumo-border-radius-l) * 2); color: white;
+    background: linear-gradient(125deg, #34246d 0%, #5146a6 52%, #1676a5 100%);
+    box-shadow: 0 1.5rem 3rem color-mix(in srgb, #211651 20%, transparent); }
+  .eyebrow { display: block; margin-bottom: var(--lumo-space-s); font-size: var(--lumo-font-size-xs); font-weight: 700; letter-spacing: .12em; opacity: .75; }
+  .hero h1 { max-width: 17ch; margin: 0; color: white; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.03; letter-spacing: -.035em; }
+  .hero > p { max-width: 42rem; margin: var(--lumo-space-m) 0; font-size: var(--lumo-font-size-l); line-height: 1.55; opacity: .88; }
+  .hero-facts { display: flex; flex-wrap: wrap; gap: var(--lumo-space-xs); }
+  .hero-facts [theme~="badge"] { color: white; border: 1px solid #ffffff3d; background: #ffffff16; }
   .lede { margin: 0; color: var(--lumo-secondary-text-color); }
   .metrics { flex-wrap: wrap; }
   .metric { flex: 1 1 12rem; display: grid; gap: var(--lumo-space-xs); padding: var(--lumo-space-m);
-    border: 1px solid var(--spa-border); border-radius: var(--lumo-border-radius-l); background: var(--spa-surface-2); }
+    border: 1px solid var(--spa-border); border-radius: var(--lumo-border-radius-l); background: var(--lumo-base-color);
+    box-shadow: 0 .5rem 1.5rem color-mix(in srgb, var(--lumo-contrast) 8%, transparent); }
   .metric span:first-child { color: var(--lumo-secondary-text-color); font-size: var(--lumo-font-size-s); }
   .metric strong { font-size: var(--lumo-font-size-xxl); color: var(--lumo-header-text-color); }
   .metric [theme~="badge"] { justify-self: start; }
   .panel { display: grid; gap: var(--lumo-space-m); padding-top: var(--lumo-space-s); }
+  vaadin-grid { width: 100%; min-width: 0; max-width: 100%; }
   .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--lumo-space-l); }
   .form-grid > * { width: 100%; }
   .actions { flex-wrap: wrap; }
   .hint { color: var(--lumo-secondary-text-color); font-size: var(--lumo-font-size-s); }
   #ship-result { margin: 0; justify-self: start; }
-  @media (max-width: 720px) { .page { padding: var(--lumo-space-s); } .form-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) {
+    spa-nav { position: static; flex-wrap: wrap; gap: var(--lumo-space-s); }
+    .page { padding: var(--lumo-space-s); }
+    .hero { border-radius: var(--lumo-border-radius-l); }
+    .form-grid { grid-template-columns: 1fr; }
+  }
 </style>
 """
+
+initial_store = {
+    "dark": False,
+    "tab": 0,
+    "selected": [],
+    "selected_count": 0,
+    "shipped": {},
+    "customer": "Northwind Traders",
+    "quantity": "10",
+    "priority": "standard",
+    "ship_by": (TODAY + timedelta(days=3)).isoformat(),
+    "gift": False,
+    "created": {"body": {"message": ""}},
+}
 
 app = serve(
     page,
@@ -297,19 +346,7 @@ app = serve(
         Route("/api/orders/ship", ship_orders, methods=["POST"]),
     ],
     background=[transports.autosync(server), advance_orders()],
-    store={
-        "dark": False,
-        "tab": 0,
-        "selected": [],
-        "selected_count": 0,
-        "shipped": {},
-        "customer": "Northwind Traders",
-        "quantity": "10",
-        "priority": "standard",
-        "ship_by": (TODAY + timedelta(days=3)).isoformat(),
-        "gift": False,
-        "created": {"body": {"message": ""}},
-    },
+    store=initial_store,
     head=styles,
     title="spaday-vaadin example",
 )

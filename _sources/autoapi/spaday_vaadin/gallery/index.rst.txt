@@ -1,0 +1,137 @@
+spaday_vaadin.gallery
+=====================
+
+.. py:module:: spaday_vaadin.gallery
+
+.. autoapi-nested-parse::
+
+   Gallery of every Vaadin component wrapped by spaday-vaadin.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   spaday_vaadin.gallery.COMPONENT_NAMES
+   spaday_vaadin.gallery.COMPONENT_SNIPPETS
+   spaday_vaadin.gallery.fields
+   spaday_vaadin.gallery.navigation
+   spaday_vaadin.gallery.orders
+   spaday_vaadin.gallery.grid
+   spaday_vaadin.gallery.advanced
+   spaday_vaadin.gallery.page
+   spaday_vaadin.gallery.styles
+   spaday_vaadin.gallery.app
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   spaday_vaadin.gallery._snippet
+   spaday_vaadin.gallery._offsets
+   spaday_vaadin.gallery._code
+   spaday_vaadin.gallery._demo
+
+
+Module Contents
+---------------
+
+.. py:data:: COMPONENT_NAMES
+   :value: ('VaadinButton', 'VaadinCheckbox', 'VaadinComboBox', 'VaadinDatePicker', 'VaadinDialog',...
+
+
+.. py:data:: COMPONENT_SNIPPETS
+   :type:  list[str]
+   :value: []
+
+
+.. py:function:: _snippet(names: str, body: str) -> str
+
+.. py:function:: _offsets(source: str) -> list[int]
+
+.. py:function:: _code(source: str)
+
+   Render dependency-free highlighted Python.
+
+
+.. py:function:: _demo(title: str, description: str, source: str, preview)
+
+.. py:data:: fields
+
+.. py:data:: navigation
+
+.. py:data:: orders
+
+.. py:data:: grid
+
+.. py:data:: advanced
+
+.. py:data:: page
+
+.. py:data:: styles
+   :value: Multiline-String
+
+   .. raw:: html
+
+      <details><summary>Show Value</summary>
+
+   .. code-block:: python
+
+      """
+      <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: var(--lumo-font-family); color: var(--lumo-body-text-color);
+          background: radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--lumo-primary-color) 12%, transparent), transparent 34rem),
+            var(--lumo-contrast-5pct); }
+        spa-nav { position: sticky; z-index: 20; top: 0; justify-content: space-between; border-bottom: 1px solid var(--spa-border); }
+        .gallery-page { display: grid; gap: var(--lumo-space-m); width: min(100%, 76rem); margin: 0 auto; padding: var(--lumo-space-l); }
+        .hero { padding: clamp(1.5rem, 5vw, 3.5rem); border-radius: calc(var(--lumo-border-radius-l) * 2); color: white;
+          background: linear-gradient(125deg, #34246d 0%, #5146a6 52%, #1676a5 100%);
+          box-shadow: 0 1.5rem 3rem color-mix(in srgb, #211651 20%, transparent); }
+        .eyebrow { display: block; margin-bottom: var(--lumo-space-s); font-size: var(--lumo-font-size-xs); font-weight: 700; letter-spacing: .12em; opacity: .75; }
+        .hero h1 { max-width: 15ch; margin: 0; color: white; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.03; letter-spacing: -.035em; }
+        .hero > p { max-width: 42rem; margin: var(--lumo-space-m) 0; font-size: var(--lumo-font-size-l); line-height: 1.55; opacity: .88; }
+        .hero-facts, .status-row { display: flex; flex-wrap: wrap; gap: var(--lumo-space-xs); }
+        .hero-facts span { padding: .4rem .65rem; border: 1px solid #ffffff3d; border-radius: 999px; background: #ffffff16; font-size: .8rem; font-weight: 700; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--lumo-space-m); }
+        .gallery-card { min-width: 0; overflow: hidden; border: 1px solid var(--spa-border); border-radius: var(--lumo-border-radius-l);
+          background: var(--lumo-base-color); box-shadow: 0 .6rem 1.6rem color-mix(in srgb, var(--lumo-contrast) 8%, transparent); }
+        .demo-heading { display: flex; justify-content: space-between; gap: var(--lumo-space-m); padding: var(--lumo-space-m); border-bottom: 1px solid var(--spa-border); }
+        .demo-heading h2 { margin: 0; font-size: var(--lumo-font-size-l); }
+        .demo-heading p { margin: var(--lumo-space-xs) 0 0; color: var(--lumo-secondary-text-color); font-size: var(--lumo-font-size-s); line-height: 1.45; }
+        .language-pill { flex: none; align-self: start; padding: .28rem .55rem; border-radius: 999px; color: var(--lumo-primary-text-color);
+          background: var(--lumo-primary-color-10pct); font-size: var(--lumo-font-size-xs); font-weight: 700; }
+        .preview { min-height: 13rem; padding: var(--lumo-space-m); background: var(--lumo-contrast-5pct); }
+        .form-preview { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--lumo-space-m); }
+        .form-preview > * { width: 100%; min-width: 0; }
+        .field-actions { display: flex; align-items: end; justify-content: space-between; gap: var(--lumo-space-s); }
+        .stack-preview { display: grid; gap: var(--lumo-space-m); }
+        vaadin-grid { width: 100%; min-width: 0; max-width: 100%; }
+        .structural-probes { display: none; }
+        .code-block { max-width: 100%; min-height: 9rem; max-height: 20rem; margin: 0; overflow: auto; padding: 1rem 1.2rem; color: #e0e7ff;
+          background: #17132c; font: .78rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre; }
+        .token-keyword { color: #93c5fd; } .token-string { color: #a7f3d0; } .token-number { color: #fcd34d; }
+        .token-comment { color: #94a3b8; } .token-operator { color: #c4b5fd; }
+        @media (max-width: 760px) {
+          spa-nav { position: static; flex-wrap: wrap; gap: var(--lumo-space-s); }
+          .gallery-page { padding: var(--lumo-space-s); }
+          .hero { border-radius: var(--lumo-border-radius-l); }
+          .gallery-grid, .form-preview { grid-template-columns: 1fr; }
+          .demo-heading { align-items: start; }
+          .field-actions { align-items: center; flex-wrap: wrap; }
+        }
+      </style>
+      """
+
+   .. raw:: html
+
+      </details>
+
+
+
+.. py:data:: app
+

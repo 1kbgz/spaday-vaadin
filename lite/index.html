@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>spaday-vaadin in Pyodide</title>
+    <link rel="stylesheet" href="./components/vaadin/css/vaadin.css" />
+    <style>
+      #pyodide-status {
+        position: sticky;
+        z-index: 10000;
+        top: 0;
+        box-sizing: border-box;
+        min-height: 3rem;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #d7d5df;
+        color: #2d293d;
+        background: #fffffff2;
+        font:
+          14px/1.4 system-ui,
+          sans-serif;
+        backdrop-filter: blur(12px);
+      }
+      #pyodide-error {
+        margin: 1rem;
+        color: #b42318;
+        white-space: pre-wrap;
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "@vaadin/a11y-base": "./components/vaadin/vendor/@vaadin/a11y-base/index.js",
+    "@vaadin/a11y-base/": "./components/vaadin/vendor/@vaadin/a11y-base/",
+    "@vaadin/button": "./components/vaadin/vendor/@vaadin/button/vaadin-button.js",
+    "@vaadin/button/": "./components/vaadin/vendor/@vaadin/button/",
+    "@vaadin/checkbox": "./components/vaadin/vendor/@vaadin/checkbox/vaadin-checkbox.js",
+    "@vaadin/checkbox/": "./components/vaadin/vendor/@vaadin/checkbox/",
+    "@vaadin/combo-box": "./components/vaadin/vendor/@vaadin/combo-box/vaadin-combo-box.js",
+    "@vaadin/combo-box/": "./components/vaadin/vendor/@vaadin/combo-box/",
+    "@vaadin/component-base": "./components/vaadin/vendor/@vaadin/component-base/index.js",
+    "@vaadin/component-base/": "./components/vaadin/vendor/@vaadin/component-base/",
+    "@vaadin/date-picker": "./components/vaadin/vendor/@vaadin/date-picker/vaadin-date-picker.js",
+    "@vaadin/date-picker/": "./components/vaadin/vendor/@vaadin/date-picker/",
+    "@vaadin/dialog": "./components/vaadin/vendor/@vaadin/dialog/vaadin-dialog.js",
+    "@vaadin/dialog/": "./components/vaadin/vendor/@vaadin/dialog/",
+    "@vaadin/field-base": "./components/vaadin/vendor/@vaadin/field-base/index.js",
+    "@vaadin/field-base/": "./components/vaadin/vendor/@vaadin/field-base/",
+    "@vaadin/grid": "./components/vaadin/vendor/@vaadin/grid/vaadin-grid.js",
+    "@vaadin/grid/": "./components/vaadin/vendor/@vaadin/grid/",
+    "@vaadin/icon": "./components/vaadin/vendor/@vaadin/icon/vaadin-icon.js",
+    "@vaadin/icon/": "./components/vaadin/vendor/@vaadin/icon/",
+    "@vaadin/input-container": "./components/vaadin/vendor/@vaadin/input-container/vaadin-input-container.js",
+    "@vaadin/input-container/": "./components/vaadin/vendor/@vaadin/input-container/",
+    "@vaadin/item": "./components/vaadin/vendor/@vaadin/item/vaadin-item.js",
+    "@vaadin/item/": "./components/vaadin/vendor/@vaadin/item/",
+    "@vaadin/list-box": "./components/vaadin/vendor/@vaadin/list-box/vaadin-list-box.js",
+    "@vaadin/list-box/": "./components/vaadin/vendor/@vaadin/list-box/",
+    "@vaadin/lit-renderer": "./components/vaadin/vendor/@vaadin/lit-renderer/src/lit-renderer.js",
+    "@vaadin/lit-renderer/": "./components/vaadin/vendor/@vaadin/lit-renderer/",
+    "@vaadin/notification": "./components/vaadin/vendor/@vaadin/notification/vaadin-notification.js",
+    "@vaadin/notification/": "./components/vaadin/vendor/@vaadin/notification/",
+    "@vaadin/overlay": "./components/vaadin/vendor/@vaadin/overlay/vaadin-overlay.js",
+    "@vaadin/overlay/": "./components/vaadin/vendor/@vaadin/overlay/",
+    "@vaadin/select": "./components/vaadin/vendor/@vaadin/select/vaadin-select.js",
+    "@vaadin/select/": "./components/vaadin/vendor/@vaadin/select/",
+    "@vaadin/tabs": "./components/vaadin/vendor/@vaadin/tabs/vaadin-tabs.js",
+    "@vaadin/tabs/": "./components/vaadin/vendor/@vaadin/tabs/",
+    "@vaadin/text-field": "./components/vaadin/vendor/@vaadin/text-field/vaadin-text-field.js",
+    "@vaadin/text-field/": "./components/vaadin/vendor/@vaadin/text-field/",
+    "@vaadin/vaadin-lumo-styles": "./components/vaadin/vendor/@vaadin/vaadin-lumo-styles/all-imports.js",
+    "@vaadin/vaadin-lumo-styles/": "./components/vaadin/vendor/@vaadin/vaadin-lumo-styles/",
+    "@vaadin/vaadin-themable-mixin": "./components/vaadin/vendor/@vaadin/vaadin-themable-mixin/vaadin-themable-mixin.js",
+    "@vaadin/vaadin-themable-mixin/": "./components/vaadin/vendor/@vaadin/vaadin-themable-mixin/"
+  }
+}
+</script>
+  </head>
+  <body>
+    <div id="pyodide-status">Loading Python in the browser…</div>
+    <div id="example-root"></div>
+    <pre id="pyodide-error" hidden></pre>
+    <script type="module">
+      import {
+        connectStore,
+        init,
+        mount,
+        Store,
+      } from "./runtime/spaday/cdn/index.js";
+      import "./components/vaadin/cdn/index.js";
+      import * as transports from "./runtime/spaday/transports/cdn/index.js";
+
+      const status = document.querySelector("#pyodide-status");
+      const exampleName =
+        new URL(location.href).searchParams.get("example") === "gallery"
+          ? "gallery"
+          : "example";
+      document.title = `spaday-vaadin ${exampleName} in Pyodide`;
+      const pendingEndpoints = new Map();
+      let nextEndpointId = 0;
+      let receiveWires = () => {};
+
+      function fail(error) {
+        status.textContent = "Unable to start";
+        const output = document.querySelector("#pyodide-error");
+        output.hidden = false;
+        output.textContent = String(error);
+      }
+
+      try {
+        await init({ module_or_path: "./runtime/spaday/pkg/spaday_bg.wasm" });
+        if (exampleName === "example") {
+          await transports.wasm.default({
+            module_or_path:
+              "./runtime/spaday/transports/pkg/transports_bg.wasm",
+          });
+        }
+
+        const worker = new Worker(
+          `./pyodide-worker.js?example=${exampleName}`,
+          { type: "module" },
+        );
+        const nativeFetch = globalThis.fetch.bind(globalThis);
+        globalThis.fetch = async (input, options = {}) => {
+          const url = new URL(
+            input instanceof Request ? input.url : input,
+            location.href,
+          );
+          if (exampleName !== "example" || !url.pathname.startsWith("/api/"))
+            return nativeFetch(input, options);
+
+          const id = ++nextEndpointId;
+          const response = new Promise((resolve) => {
+            pendingEndpoints.set(id, resolve);
+          });
+          worker.postMessage({
+            type: "endpoint",
+            id,
+            path: url.pathname,
+            body: options.body ? JSON.parse(String(options.body)) : null,
+          });
+          return response;
+        };
+
+        worker.addEventListener("message", (event) => {
+          if (event.data.type === "status")
+            status.textContent = event.data.message;
+          if (event.data.type === "error") fail(event.data.message);
+          if (event.data.type === "wires") receiveWires(event.data.wires);
+          if (event.data.type === "endpoint") {
+            receiveWires(event.data.wires);
+            const resolve = pendingEndpoints.get(event.data.id);
+            if (resolve) {
+              pendingEndpoints.delete(event.data.id);
+              resolve(
+                new Response(JSON.stringify(event.data.body), {
+                  status: event.data.status,
+                  headers: { "content-type": "application/json" },
+                }),
+              );
+            }
+          }
+          if (event.data.type === "snapshot") {
+            const {
+              tree,
+              style,
+              store: initialStore,
+              wire,
+              wires,
+            } = event.data.payload;
+            document.head.insertAdjacentHTML("beforeend", style);
+            const store = new Store(initialStore);
+            if (wire) {
+              const client = new transports.Client();
+              const link = connectStore(
+                store,
+                client,
+                (frame) => worker.postMessage({ type: "wire", frame }),
+                transports,
+              );
+              receiveWires = (frames) => {
+                for (const frame of frames) link.receive(frame);
+              };
+              receiveWires(wires);
+              window.setInterval(
+                () => worker.postMessage({ type: "flush" }),
+                100,
+              );
+            }
+            mount(document.querySelector("#example-root"), tree, store);
+            status.textContent = `Ready · Python ${exampleName} running in this browser`;
+            document.documentElement.dataset.ready = "true";
+          }
+        });
+        worker.postMessage({ type: "start" });
+      } catch (error) {
+        fail(error);
+      }
+    </script>
+  </body>
+</html>

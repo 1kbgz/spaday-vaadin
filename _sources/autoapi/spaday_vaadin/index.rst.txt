@@ -12,6 +12,7 @@ Submodules
 
    /autoapi/spaday_vaadin/components/index
    /autoapi/spaday_vaadin/example/index
+   /autoapi/spaday_vaadin/gallery/index
 
 
 Attributes
