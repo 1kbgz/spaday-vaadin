@@ -7,7 +7,7 @@ import keyword
 import textwrap
 import tokenize
 
-from spaday import element
+from spaday import SetProp, by_id, element
 from spaday.backends.starlette import serve
 from spaday.components.shell import App, Body, Main, Nav
 
@@ -156,13 +156,14 @@ navigation = _demo(
             element("span", theme="badge error").text("1 exception"),
             class_="status-row",
         ),
-        VaadinButton(theme="tertiary").text("Review activity"),
         element(
-            "span",
-            VaadinDialog(header_title="Shipment created"),
-            VaadinNotification(duration=4000),
-            class_="structural-probes",
+            "div",
+            VaadinButton(theme="tertiary").text("Open shipment dialog").on("click", SetProp(by_id("gallery-dialog"), "opened", True)),
+            VaadinButton(theme="tertiary").text("Show notification").on("click", SetProp(by_id("gallery-notification"), "opened", True)),
+            class_="feedback-actions",
         ),
+        VaadinDialog(id="gallery-dialog", header_title="Shipment created"),
+        VaadinNotification(id="gallery-notification", duration=4000),
         class_="stack-preview",
     ),
 )
@@ -231,11 +232,11 @@ advanced = _demo(
             ),
         ),
         element(
-            "span",
-            VaadinGridFilter(path="name"),
-            VaadinGridSorter(path="name"),
-            VaadinGridTreeToggle(leaf=True),
-            class_="structural-probes",
+            "div",
+            element("label", element("span").text("Filter primitive"), VaadinGridFilter(VaadinTextField(placeholder="Network"), path="name")),
+            element("label", element("span").text("Sorter primitive"), VaadinGridSorter("Network", path="name")),
+            element("label", element("span").text("Tree toggle primitive"), VaadinGridTreeToggle("East network", level=0)),
+            class_="grid-primitives",
         ),
         class_="stack-preview",
     ),
@@ -279,7 +280,7 @@ styles = """
   .eyebrow { display: block; margin-bottom: var(--lumo-space-s); font-size: var(--lumo-font-size-xs); font-weight: 700; letter-spacing: .12em; opacity: .75; }
   .hero h1 { max-width: 15ch; margin: 0; color: white; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.03; letter-spacing: -.035em; }
   .hero > p { max-width: 42rem; margin: var(--lumo-space-m) 0; font-size: var(--lumo-font-size-l); line-height: 1.55; opacity: .88; }
-  .hero-facts, .status-row { display: flex; flex-wrap: wrap; gap: var(--lumo-space-xs); }
+  .hero-facts, .status-row, .feedback-actions { display: flex; flex-wrap: wrap; gap: var(--lumo-space-xs); }
   .hero-facts span { padding: .4rem .65rem; border: 1px solid #ffffff3d; border-radius: 999px; background: #ffffff16; font-size: .8rem; font-weight: 700; }
   .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--lumo-space-m); }
   .gallery-card { min-width: 0; overflow: hidden; border: 1px solid var(--spa-border); border-radius: var(--lumo-border-radius-l);
@@ -295,7 +296,10 @@ styles = """
   .field-actions { display: flex; align-items: end; justify-content: space-between; gap: var(--lumo-space-s); }
   .stack-preview { display: grid; gap: var(--lumo-space-m); }
   vaadin-grid { width: 100%; min-width: 0; max-width: 100%; }
-  .structural-probes { display: none; }
+  .grid-primitives { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--lumo-space-s); }
+  .grid-primitives label { display: grid; align-content: start; gap: var(--lumo-space-xs); min-width: 0; padding: var(--lumo-space-s);
+    border: 1px dashed var(--spa-border); border-radius: var(--lumo-border-radius-m); background: var(--lumo-base-color); font-size: var(--lumo-font-size-xs); }
+  .grid-primitives label > * { max-width: 100%; }
   .code-block { max-width: 100%; min-height: 9rem; max-height: 20rem; margin: 0; overflow: auto; padding: 1rem 1.2rem; color: #e0e7ff;
     background: #17132c; font: .78rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre; }
   .token-keyword { color: #93c5fd; } .token-string { color: #a7f3d0; } .token-number { color: #fcd34d; }
@@ -304,7 +308,7 @@ styles = """
     spa-nav { position: static; flex-wrap: wrap; gap: var(--lumo-space-s); }
     .gallery-page { padding: var(--lumo-space-s); }
     .hero { border-radius: var(--lumo-border-radius-l); }
-    .gallery-grid, .form-preview { grid-template-columns: 1fr; }
+    .gallery-grid, .form-preview, .grid-primitives { grid-template-columns: 1fr; }
     .demo-heading { align-items: start; }
     .field-actions { align-items: center; flex-wrap: wrap; }
   }
