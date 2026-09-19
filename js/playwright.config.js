@@ -33,6 +33,12 @@ export default defineConfig({
     ...(!pyodideOnly
       ? [
           {
+            command: "python -m spaday.ui.conformance 8032 --package vaadin",
+            url: "http://127.0.0.1:8032",
+            reuseExistingServer: !process.env.CI,
+            timeout: 120 * 1000,
+          },
+          {
             command: "python -m spaday_vaadin.example",
             url: "http://127.0.0.1:8027",
             reuseExistingServer: !process.env.CI,

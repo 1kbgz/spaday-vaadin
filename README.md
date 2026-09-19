@@ -30,6 +30,27 @@ author the tree. Array properties such as a grid's `items` are keyword arguments
 element as properties. Installing the package does not inject assets; select it with
 `packages=["vaadin"]` or pass the exported `package` descriptor.
 
+## Generic controls
+
+Selecting the `vaadin` package also selects its design, rendering spaday's generic button, text
+input, date input, checkbox, select, and dialog as Vaadin elements:
+
+```python
+from spaday import Button, Column, TextInput
+from spaday.backends.starlette import serve
+
+page = Column(
+    TextInput(label="Name").bind("value", "name", mode="two-way"),
+    Button(label="Save", intent="primary"),
+)
+app = serve(page, packages=["vaadin"], design="vaadin", store={"name": ""})
+```
+
+The other seven generic controls use spaday's marked native fallback because they are outside this
+package's curated Vaadin subset or require a rendering contract the generic API cannot preserve.
+Text inputs with a non-text `type`, such as `password` or `email`, also use the native fallback
+because this package's curated subset contains `vaadin-text-field` only.
+
 ## Browser examples
 
 - [Fulfillment desk](https://1kbgz.github.io/spaday-vaadin/lite/) — complete interactive example, with Python running in Pyodide.
