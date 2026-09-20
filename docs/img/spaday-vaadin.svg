@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" shape-rendering="geometricPrecision" role="img" aria-label="spaday-vaadin">
+  <title>spaday-vaadin</title>
+  <defs><clipPath id="viewport-clip"><rect x="124" y="243" width="1006" height="854" rx="62"/></clipPath></defs>
+  <rect x="88" y="96" width="1078" height="1036" rx="108" fill="#0C4253"/>
+  <rect x="124" y="243" width="1006" height="854" rx="62" fill="#F2F3EF"/>
+  <circle cx="208" cy="175" r="25" fill="#FC6B47"/><circle cx="295" cy="175" r="25" fill="#AECEC3"/><circle cx="383" cy="175" r="25" fill="#F2F3EF"/>
+  <g clip-path="url(#viewport-clip)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M350 375h120c95 0 140 50 140 145v40c0 65 32 100 95 110-63 10-95 45-95 110v40c0 95-45 145-140 145H350" stroke="#AECEC3" stroke-width="70"/>
+    <path d="m760 450 220 220-220 220" stroke="#FC6B47" stroke-width="78"/>
+  </g>
+</svg>
