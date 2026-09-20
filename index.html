@@ -252,8 +252,12 @@
         <article role="main" id="furo-main-content">
           <div class="toctree-wrapper compound">
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="spaday-vaadin">
-<h1>spaday-vaadin<a class="headerlink" href="#spaday-vaadin" title="Link to this heading">¶</a></h1>
+<a href="https://github.com/1kbgz/spaday-vaadin">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/1kbgz/spaday-vaadin/raw/main/docs/img/logo-dark.webp?raw=true">
+    <img alt="spaday-vaadin logo, a brace and chevron inside a browser window" src="https://github.com/1kbgz/spaday-vaadin/raw/main/docs/img/logo-light.webp?raw=true" width="1200">
+  </picture>
+</a>
 <p>Typed <a class="reference external" href="https://vaadin.com/docs/latest/components">Vaadin</a> web components and browser assets for spaday.</p>
 <p><a class="reference external" href="https://github.com/1kbgz/spaday-vaadin/actions/workflows/build.yaml"><img alt="Build Status" src="https://github.com/1kbgz/spaday-vaadin/actions/workflows/build.yaml/badge.svg?branch=main&amp;event=push" /></a>
 <a class="reference external" href="https://codecov.io/gh/1kbgz/spaday-vaadin"><img alt="codecov" src="https://codecov.io/gh/1kbgz/spaday-vaadin/branch/main/graph/badge.svg" /></a>
@@ -261,7 +265,7 @@
 <a class="reference external" href="https://pypi.python.org/pypi/spaday-vaadin"><img alt="PyPI" src="https://img.shields.io/pypi/v/spaday-vaadin.svg" /></a></p>
 <p><a class="reference external" href="https://1kbgz.github.io/spaday-vaadin/lite/"><img alt="Preview of vaadin components in spaday rendering a fulfillment cockpit" src="https://raw.githubusercontent.com/1kbgz/spaday-vaadin/main/docs/img/preview.webp" /></a></p>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h1>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spaday</span><span class="w"> </span><span class="kn">import</span> <span class="n">SetField</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">serve</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spaday_vaadin</span><span class="w"> </span><span class="kn">import</span> <span class="n">VaadinButton</span><span class="p">,</span> <span class="n">VaadinGrid</span><span class="p">,</span> <span class="n">VaadinGridColumn</span><span class="p">,</span> <span class="n">VaadinTextField</span>
 
@@ -281,14 +285,14 @@ element as properties. Installing the package does not inject assets; select it 
 <code class="docutils literal notranslate"><span class="pre">packages=[&quot;vaadin&quot;]</span></code> or pass the exported <code class="docutils literal notranslate"><span class="pre">package</span></code> descriptor.</p>
 </section>
 <section id="browser-examples">
-<h2>Browser examples<a class="headerlink" href="#browser-examples" title="Link to this heading">¶</a></h2>
+<h1>Browser examples<a class="headerlink" href="#browser-examples" title="Link to this heading">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://1kbgz.github.io/spaday-vaadin/lite/">Fulfillment desk</a> — complete interactive example, with Python running in Pyodide.</p></li>
 <li><p><a class="reference external" href="https://1kbgz.github.io/spaday-vaadin/lite/?example=gallery">Component gallery</a> — the current curated 20-wrapper subset and its Python source.</p></li>
 </ul>
 </section>
 <section id="run-the-local-example">
-<h2>Run the local example<a class="headerlink" href="#run-the-local-example" title="Link to this heading">¶</a></h2>
+<h1>Run the local example<a class="headerlink" href="#run-the-local-example" title="Link to this heading">¶</a></h1>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[examples]"</span>
 python<span class="w"> </span>-m<span class="w"> </span>spaday_vaadin.example
 </pre></div>
@@ -301,7 +305,7 @@ re-themes Lumo and the spaday shell together.</p>
 <p>Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">spaday_vaadin.gallery</span></code> and open <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8028</span></code> for the curated local component gallery.</p>
 </section>
 <section id="theming">
-<h2>Theming<a class="headerlink" href="#theming" title="Link to this heading">¶</a></h2>
+<h1>Theming<a class="headerlink" href="#theming" title="Link to this heading">¶</a></h1>
 <p>The elements are styled with Vaadin’s Lumo theme, and the stylesheet maps spaday’s <code class="docutils literal notranslate"><span class="pre">--spa-*</span></code> shell
 palette onto Lumo’s properties, so restyling Lumo restyles the shell and every other spaday component
 package with it. <code class="docutils literal notranslate"><span class="pre">TOKENS</span></code> lists the properties wired to the palette:</p>
@@ -313,7 +317,7 @@ package with it. <code class="docutils literal notranslate"><span class="pre">TO
 a dark page stays light.</p>
 </section>
 <section id="sharing-vaadin-with-your-own-library">
-<h2>Sharing Vaadin with your own library<a class="headerlink" href="#sharing-vaadin-with-your-own-library" title="Link to this heading">¶</a></h2>
+<h1>Sharing Vaadin with your own library<a class="headerlink" href="#sharing-vaadin-with-your-own-library" title="Link to this heading">¶</a></h1>
 <p>Vaadin registers global custom element names, so a page can hold only one copy. The package serves
 Vaadin’s modules under their own bare specifiers — <code class="docutils literal notranslate"><span class="pre">&#64;vaadin/button</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;vaadin/grid/…</span></code>,
 <code class="docutils literal notranslate"><span class="pre">&#64;vaadin/component-base/…</span></code> and the other packages these elements are built from — through the page’s
@@ -325,7 +329,6 @@ normally installs at <code class="docutils literal notranslate"><span class="pre
 <p class="admonition-title">Note</p>
 <p>This library was generated using <a class="reference external" href="https://copier.readthedocs.io/en/stable/">copier</a> from the <a class="reference external" href="https://github.com/python-project-templates/base">Base Python Project Template repository</a>.</p>
 </div>
-</section>
 </section>
 
         </article>

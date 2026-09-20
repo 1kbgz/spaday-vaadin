@@ -9,7 +9,12 @@ hidden: true
 
 ```
 
-# spaday-vaadin
+<a href="https://github.com/1kbgz/spaday-vaadin">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/1kbgz/spaday-vaadin/raw/main/docs/img/logo-dark.webp?raw=true">
+    <img alt="spaday-vaadin logo, a brace and chevron inside a browser window" src="https://github.com/1kbgz/spaday-vaadin/raw/main/docs/img/logo-light.webp?raw=true" width="1200">
+  </picture>
+</a>
 
 Typed [Vaadin](https://vaadin.com/docs/latest/components) web components and browser assets for spaday.
 
