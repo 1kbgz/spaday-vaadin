@@ -11,6 +11,7 @@ Submodules
    :maxdepth: 1
 
    /autoapi/spaday_vaadin/components/index
+   /autoapi/spaday_vaadin/design/index
    /autoapi/spaday_vaadin/example/index
    /autoapi/spaday_vaadin/gallery/index
 
@@ -20,6 +21,7 @@ Attributes
 
 .. autoapisummary::
 
+   spaday_vaadin.DESIGN
    spaday_vaadin.package
    spaday_vaadin.TOKENS
 
@@ -373,6 +375,8 @@ Package Contents
 
    .. py:attribute:: schema
 
+
+.. py:data:: DESIGN
 
 .. py:data:: package
 

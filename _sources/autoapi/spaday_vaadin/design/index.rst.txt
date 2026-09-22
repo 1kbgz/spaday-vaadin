@@ -1,0 +1,24 @@
+spaday_vaadin.design
+====================
+
+.. py:module:: spaday_vaadin.design
+
+.. autoapi-nested-parse::
+
+   How Vaadin renders spaday's generic controls (:mod:`spaday.ui`).
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   spaday_vaadin.design.DESIGN
+
+
+Module Contents
+---------------
+
+.. py:data:: DESIGN
+

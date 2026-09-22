@@ -1,0 +1,34 @@
+test_design
+===========
+
+.. py:module:: test_design
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   test_design._props
+   test_design.test_the_package_publishes_its_design
+   test_design.test_vaadin_fields_use_their_native_label_and_validation_properties
+   test_design.test_button_and_dialog_map_to_vaadin
+   test_design.test_select_defers_its_items_and_value_until_vaadin_is_connected
+   test_design.test_the_conformance_page_marks_the_curated_catalog_gaps
+
+
+Module Contents
+---------------
+
+.. py:function:: _props(node: dict) -> dict
+
+.. py:function:: test_the_package_publishes_its_design()
+
+.. py:function:: test_vaadin_fields_use_their_native_label_and_validation_properties()
+
+.. py:function:: test_button_and_dialog_map_to_vaadin()
+
+.. py:function:: test_select_defers_its_items_and_value_until_vaadin_is_connected()
+
+.. py:function:: test_the_conformance_page_marks_the_curated_catalog_gaps()
+
