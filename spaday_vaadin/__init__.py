@@ -45,6 +45,7 @@ TOKENS = {
     "lumo_base_color": Token("--lumo-base-color", "drives --spa-surface"),
     "lumo_contrast_5pct": Token("--lumo-contrast-5pct", "drives --spa-surface-2"),
     "lumo_contrast_10pct": Token("--lumo-contrast-10pct", "drives --spa-border"),
+    "lumo_body_text_color": Token("--lumo-body-text-color", "drives --spa-text"),
     "lumo_secondary_text_color": Token("--lumo-secondary-text-color", "drives --spa-muted"),
     "lumo_primary_color": Token("--lumo-primary-color", "drives --spa-accent and --spa-info"),
     "lumo_success_color": Token("--lumo-success-color", "drives --spa-success"),
