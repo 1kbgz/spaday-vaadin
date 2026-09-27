@@ -1,7 +1,7 @@
 import ast
 from pathlib import Path
 
-from spaday import element, generate
+from spaday import Token, element, generate
 from spaday.bootstrap import bootstrap
 
 from spaday_vaadin import TOKENS, VaadinButton, VaadinGrid, VaadinGridColumn, VaadinTextField, package
@@ -48,7 +48,9 @@ def test_published_imports_are_served():
 
 
 def test_tokens_are_lumo_properties_the_css_kwarg_produces():
-    for kwarg, (prop, description) in TOKENS.items():
+    for kwarg, token in TOKENS.items():
+        assert isinstance(token, Token)
+        prop, description = token
         assert prop == "--" + kwarg.replace("_", "-") and description.startswith("drives --spa-")
         assert element("div").css(**{kwarg: "x"}).to_node()["props"]["style"]["Str"] == f"{prop}: x"
 

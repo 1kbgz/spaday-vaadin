@@ -1,14 +1,14 @@
 import json
 from pathlib import Path
 
-from spaday import ComponentPackage
+from spaday import ComponentPackage, Token
 
 from . import components as _components
 from .components import *
 from .components import __all__ as _component_names
 from .design import DESIGN
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 _EXTENSION = Path(__file__).parent / "extension"
 # Vaadin's packages under their own bare specifiers, written by the JS build (js/tools/vendor.mjs): a
@@ -42,14 +42,14 @@ package = ComponentPackage(
 #: Every other Lumo property works the same way (``css()`` takes arbitrary custom properties);
 #: these are the ones wired to the shell palette.
 TOKENS = {
-    "lumo_base_color": ("--lumo-base-color", "drives --spa-surface"),
-    "lumo_contrast_5pct": ("--lumo-contrast-5pct", "drives --spa-surface-2"),
-    "lumo_contrast_10pct": ("--lumo-contrast-10pct", "drives --spa-border"),
-    "lumo_secondary_text_color": ("--lumo-secondary-text-color", "drives --spa-muted"),
-    "lumo_primary_color": ("--lumo-primary-color", "drives --spa-accent and --spa-info"),
-    "lumo_success_color": ("--lumo-success-color", "drives --spa-success"),
-    "lumo_warning_color": ("--lumo-warning-color", "drives --spa-warning"),
-    "lumo_error_color": ("--lumo-error-color", "drives --spa-danger"),
+    "lumo_base_color": Token("--lumo-base-color", "drives --spa-surface"),
+    "lumo_contrast_5pct": Token("--lumo-contrast-5pct", "drives --spa-surface-2"),
+    "lumo_contrast_10pct": Token("--lumo-contrast-10pct", "drives --spa-border"),
+    "lumo_secondary_text_color": Token("--lumo-secondary-text-color", "drives --spa-muted"),
+    "lumo_primary_color": Token("--lumo-primary-color", "drives --spa-accent and --spa-info"),
+    "lumo_success_color": Token("--lumo-success-color", "drives --spa-success"),
+    "lumo_warning_color": Token("--lumo-warning-color", "drives --spa-warning"),
+    "lumo_error_color": Token("--lumo-error-color", "drives --spa-danger"),
 }
 
 __all__ = [*_component_names, "DESIGN", "TOKENS", "package"]  # noqa: PLE0604
