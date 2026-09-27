@@ -15,6 +15,7 @@ spa-app,
   --spa-surface: var(--lumo-base-color);
   --spa-surface-2: var(--lumo-contrast-5pct);
   --spa-border: var(--lumo-contrast-10pct);
+  --spa-text: var(--lumo-body-text-color);
   --spa-muted: var(--lumo-secondary-text-color);
   --spa-accent: var(--lumo-primary-color);
   --spa-info: var(--lumo-primary-color);

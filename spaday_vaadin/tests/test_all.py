@@ -54,6 +54,9 @@ def test_tokens_are_lumo_properties_the_css_kwarg_produces():
         assert prop == "--" + kwarg.replace("_", "-") and description.startswith("drives --spa-")
         assert element("div").css(**{kwarg: "x"}).to_node()["props"]["style"]["Str"] == f"{prop}: x"
 
+    css = (ROOT.parent / "js/src/css/vaadin.css").read_text(encoding="utf-8")
+    assert "--spa-text: var(--lumo-body-text-color);" in css
+
 
 def test_generated_catalog_is_current():
     fresh = generate(str(ROOT / "custom-elements.json"))
