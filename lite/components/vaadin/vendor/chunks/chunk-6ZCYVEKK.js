@@ -1,0 +1,10 @@
+import{c as p,e as o,f as d,q as g,s as c}from"./chunk-KCL46YAO.js";import{a as h}from"./chunk-KMEUEDIC.js";import{a as l}from"./chunk-JZAPRMTG.js";import{d as u}from"./chunk-OJTXSKFF.js";var f=12;function M(n){return Math.floor(n/f)*f}var m=Object.freeze({pending:!0});function v(n){return typeof n?.date=="string"?g(n.date):void 0}function y(n,t){let e=new Map(n.map(i=>[i,new Map]));return Array.isArray(t)?t.forEach(i=>{let s=v(i);s?e.get(o(s))?.set(s.getDate(),i):h("Ignored `dateMetadataProvider` entries whose `date` is not an ISO 8601 date.")}):t!=null&&h("Expected `dateMetadataProvider` to return an array of date metadata objects."),e}var b=class{host;provider=null;#r;#t=new Map;#i=new Set;#s=0;#n;constructor(t,e){this.host=t,this.#r=e}hostConnected(){this.#e()}subscribe(t){this.#i.add(t)}isLoading(){for(let{pending:t}of this.#t.values())if(t)return!0;return!1}setProvider(t){let e=t??null;this.provider!==e&&(this.provider=e,this.clearCache())}clearCache(){this.#t.clear(),this.#s+=1,this.#e()}isMonthLoaded(t){return!!this.#o(t)}isMonthPending(t){return!!t&&!!this.#t.get(o(t))?.pending}getMetadata(t){return this.#o(t)?.entries.get(t.getDate())}isDateDisabled(t){return!!this.getMetadata(t)?.disabled}ensureRangeLoaded(t,e){if(!this.provider||!t||!e)return;let i=M(o(t)),s=M(o(e))+f-1,r=[];for(let a=i;a<=s;a++)this.#t.has(a)||r.push(a);r.length>0&&this.#a(r)}#o(t){let e=t&&this.#t.get(o(t));return e&&!e.pending?e:void 0}async#a(t){let e=this.#s;t.forEach(r=>this.#t.set(r,m)),this.#e();let i={start:c(d(t[0])),end:c(p(d(t.at(-1))))},s;try{let r=await this.provider(i);s=y(t,r)}catch(r){console.error(r)}e===this.#s&&(t.forEach(r=>{s?this.#t.set(r,{pending:!1,entries:s.get(r)}):this.#t.delete(r)}),this.#e())}#e(){this.#i.forEach(t=>t.requestUpdate()),this.#r&&(this.#n=l.debounce(this.#n,u,()=>{this.host.isConnected&&this.#r()}))}};export{b as a};
+/*! Bundled license information:
+
+@vaadin/date-picker/src/vaadin-date-metadata-controller.js:
+  (**
+   * @license
+   * Copyright (c) 2016 - 2026 Vaadin Ltd.
+   * This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+   *)
+*/

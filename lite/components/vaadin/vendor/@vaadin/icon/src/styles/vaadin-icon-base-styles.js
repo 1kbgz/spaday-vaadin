@@ -1,1 +1,1 @@
-import{a}from"../../../../chunks/chunk-QVWJIH3J.js";import"../../../../chunks/chunk-V3TG64QR.js";export{a as iconStyles};
+import{a}from"../../../../chunks/chunk-QYEB25EG.js";import"../../../../chunks/chunk-V3TG64QR.js";export{a as iconStyles};

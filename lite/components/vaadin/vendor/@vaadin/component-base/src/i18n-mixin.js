@@ -1,1 +1,1 @@
-import{a}from"../../../chunks/chunk-DPNO56SO.js";import"../../../chunks/chunk-OLSHE26S.js";export{a as I18nMixin};
+import{a}from"../../../chunks/chunk-BIYKDIRQ.js";import"../../../chunks/chunk-7PIE4FAP.js";export{a as I18nMixin};

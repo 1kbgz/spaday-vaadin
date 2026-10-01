@@ -1,4 +1,4 @@
-import{b as r}from"../../../../chunks/chunk-47SZQVFY.js";import{c as a}from"../../../../chunks/chunk-V3TG64QR.js";r("vaadin-base-user-colors",a`
+import{b as r}from"../../../../chunks/chunk-S3KPK7DJ.js";import{c as a}from"../../../../chunks/chunk-V3TG64QR.js";r("vaadin-base-user-colors",a`
     @layer vaadin.base {
       html {
         --_color-count: 10;

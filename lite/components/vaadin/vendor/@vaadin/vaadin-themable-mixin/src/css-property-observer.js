@@ -1,1 +1,1 @@
-import{a}from"../../../chunks/chunk-2D7CPLXI.js";export{a as CSSPropertyObserver};
+import{a}from"../../../chunks/chunk-D7EY2USO.js";export{a as CSSPropertyObserver};

@@ -1,4 +1,4 @@
-import"../../../../chunks/chunk-Q5CM25BS.js";import"../../../../chunks/chunk-47SZQVFY.js";import{c as a}from"../../../../chunks/chunk-V3TG64QR.js";var e=a`
+import"../../../../chunks/chunk-GE3HQ6BM.js";import"../../../../chunks/chunk-S3KPK7DJ.js";import{c as a}from"../../../../chunks/chunk-V3TG64QR.js";var o=a`
   [part='label'],
   [part='helper-text'],
   [part='error-message'] {
@@ -15,14 +15,10 @@ import"../../../../chunks/chunk-Q5CM25BS.js";import"../../../../chunks/chunk-47S
   :host([theme~='horizontal']) [part='group-field'] {
     flex-flow: row wrap;
     align-items: center;
-  }
-
-  :host([has-label][theme~='horizontal']) [part='group-field'] {
-    padding: var(--vaadin-padding-block-container) var(--vaadin-padding-inline-container);
-    padding-inline: 0;
+    padding-block: var(--vaadin-padding-block-container);
     border-block: var(--vaadin-input-field-border-width, 1px) solid transparent;
   }
-`;export{e as group};
+`;export{o as group};
 /*! Bundled license information:
 
 @vaadin/field-base/src/styles/group-base-styles.js:

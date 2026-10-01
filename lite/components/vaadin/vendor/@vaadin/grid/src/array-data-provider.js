@@ -1,1 +1,1 @@
-import{a}from"../../../chunks/chunk-YUYC63DB.js";export{a as createArrayDataProvider};
+import{a}from"../../../chunks/chunk-EKXNZABY.js";export{a as createArrayDataProvider};

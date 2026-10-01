@@ -1,1 +1,1 @@
-import{a}from"../../../chunks/chunk-M4AYG4LZ.js";import"../../../chunks/chunk-YUYC63DB.js";export{a as ArrayDataProviderMixin};
+import{a}from"../../../chunks/chunk-H4V24O5F.js";import"../../../chunks/chunk-EKXNZABY.js";export{a as ArrayDataProviderMixin};
