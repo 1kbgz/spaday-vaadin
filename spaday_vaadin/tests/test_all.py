@@ -20,11 +20,13 @@ def test_catalog_covers_the_curated_set():
     assert {"vaadin-button", "vaadin-text-field", "vaadin-grid", "vaadin-date-picker", "vaadin-dialog"} <= tags
     assert len(tags) == 20
     # the theme variants every element takes come from a mixin in another package
+    assert VaadinButton.schema is not None
     assert "theme" in {prop.name for prop in VaadinButton.schema.props}
 
 
 def test_grid_items_are_a_property_only_input():
     # Vaadin's manifest leaves array properties out of `attributes`; the collector lists them as fields
+    assert VaadinGrid.schema is not None
     assert {"items", "selectedItems"} <= {field.name for field in VaadinGrid.schema.fields}
     node = VaadinGrid(items=[{"name": "Ada"}]).child(VaadinGridColumn(path="name")).to_node()
     assert node["props"]["items"] == {"List": [{"Map": {"name": {"Str": "Ada"}}}]}
