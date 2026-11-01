@@ -1,1 +1,1 @@
-import{a}from"../../../chunks/chunk-ZWP3FJXE.js";export{a as GridSortColumnMixin};
+import{a}from"../../../chunks/chunk-WFIKXHAC.js";export{a as GridSortColumnMixin};

@@ -1,1 +1,1 @@
-import{a}from"../../../chunks/chunk-4POVISSM.js";export{a as SlotObserver};
+import{a}from"../../../chunks/chunk-PC5H2I23.js";export{a as SlotObserver};

@@ -1,4 +1,4 @@
-import{a as h}from"../../../chunks/chunk-FX5WFZXP.js";var i=class{#s=null;constructor(s,t){this.host=s,this.callback=typeof t=="function"?t:()=>s}showModal(){let s=this.callback();this.#s=h(s)}close(){this.#s&&(this.#s(),this.#s=null)}};export{i as AriaModalController};
+import{a as h}from"../../../chunks/chunk-5HAVFI6H.js";var i=class{#s=null;constructor(s,t){this.host=s,this.callback=typeof t=="function"?t:()=>s}showModal(){let s=this.callback();this.#s=h(s)}close(){this.#s&&(this.#s(),this.#s=null)}};export{i as AriaModalController};
 /*! Bundled license information:
 
 @vaadin/a11y-base/src/aria-modal-controller.js:

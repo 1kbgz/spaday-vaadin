@@ -1,1 +1,1 @@
-import{a}from"../../../chunks/chunk-5JFSSCCH.js";export{a as defineCustomElement};
+import{a}from"../../../chunks/chunk-JRGUID65.js";export{a as defineCustomElement};

@@ -1,1 +1,1 @@
-import{a,b}from"../../../chunks/chunk-4O2LE24W.js";import"../../../chunks/chunk-CZ5GDYZO.js";export{b as needsFontIconSizingFallback,a as supportsCQUnitsForPseudoElements};
+import{a,b}from"../../../chunks/chunk-ULKU7JUG.js";import"../../../chunks/chunk-BGITG5XF.js";export{b as needsFontIconSizingFallback,a as supportsCQUnitsForPseudoElements};

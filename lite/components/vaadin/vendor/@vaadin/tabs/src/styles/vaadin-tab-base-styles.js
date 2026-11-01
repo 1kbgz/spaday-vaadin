@@ -1,1 +1,1 @@
-import{a}from"../../../../chunks/chunk-RWCOFN2G.js";import"../../../../chunks/chunk-GE3HQ6BM.js";import"../../../../chunks/chunk-S3KPK7DJ.js";import"../../../../chunks/chunk-V3TG64QR.js";export{a as tabStyles};
+import{a}from"../../../../chunks/chunk-G7VQOUJH.js";import"../../../../chunks/chunk-I6JEQ2GA.js";import"../../../../chunks/chunk-CLBFPUFT.js";import"../../../../chunks/chunk-V3TG64QR.js";export{a as tabStyles};

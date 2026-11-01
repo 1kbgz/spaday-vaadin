@@ -1,0 +1,10 @@
+import{a}from"./chunk-EK4MLOKO.js";import{b as c}from"./chunk-IJ4VM7T5.js";import{a as r,b as s,c as n,e as i,f as u}from"./chunk-FAAUYL2O.js";var F=l=>class extends l{static get properties(){return{focusTrap:{type:Boolean,value:!1},autofocus:{type:Boolean,value:!1},restoreFocusOnClose:{type:Boolean,value:!1},restoreFocusNode:{type:HTMLElement}}}static get manageFocus(){return!0}constructor(){super(),this.__manageFocus=this.constructor.manageFocus,this.__manageFocus&&(this.__focusTrapController=new c(this),this.__focusRestorationController=new a)}get _contentRoot(){return this}ready(){super.ready(),this.__manageFocus&&(this.addController(this.__focusTrapController),this.addController(this.__focusRestorationController))}get _focusRoot(){return this.$.overlay}_resetFocus(){if(this.__manageFocus&&(this.focusTrap&&this.__focusTrapController.releaseFocus(),this.restoreFocusOnClose&&this._shouldRestoreFocus())){let o=s(),e=!o;this.__focusRestorationController.restoreFocus({preventScroll:e,focusVisible:o})}}_saveFocus(){this.__manageFocus&&this.restoreFocusOnClose&&this.__focusRestorationController.saveFocus(this.restoreFocusNode)}_initFocus(){if(!this.__manageFocus||n(this._focusRoot))return;let o=u(this._focusRoot);o.some(i)||(o.find(t=>this.#o(t))??(this.autofocus?o[0]:null))?.focus({focusVisible:s()}),this.focusTrap&&this.__focusTrapController.trapFocus(this._focusRoot)}_shouldRestoreFocus(){let o=r();return o===document.body||this._deepContains(o)}_deepContains(o){if(this._contentRoot.contains(o))return!0;let e=o,t=o.ownerDocument;for(;e&&e!==t&&e!==this._contentRoot;)e=e.parentNode||e.host;return e===this._contentRoot}#o(o){let e=this._focusRoot,t=o;for(;t&&t!==e&&t!==this;){if(t.autofocus&&(t===o||customElements.get(t.localName)))return!0;t=t.assignedSlot||t.parentNode||t.host}return!1}};export{F as a};
+/*! Bundled license information:
+
+@vaadin/overlay/src/vaadin-overlay-focus-mixin.js:
+  (**
+   * @license
+   * Copyright (c) 2017 - 2026 Vaadin Ltd.
+   * This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+   *)
+*/

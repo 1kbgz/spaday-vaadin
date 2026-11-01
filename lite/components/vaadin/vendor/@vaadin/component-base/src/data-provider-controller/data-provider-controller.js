@@ -1,1 +1,1 @@
-import{a}from"../../../../chunks/chunk-F32EUZ6M.js";import"../../../../chunks/chunk-FK4MSRVJ.js";import"../../../../chunks/chunk-JFKU4WDX.js";export{a as DataProviderController};
+import{a}from"../../../../chunks/chunk-FNUAMHKY.js";import"../../../../chunks/chunk-ENPACSWI.js";import"../../../../chunks/chunk-2HUBNYY2.js";export{a as DataProviderController};
